@@ -90,6 +90,9 @@ SELECT game_date, winning_seed, winner, winning_score,
   FROM Tournament 
   WHERE round = 'National Championship'  
   
-----
+--- Total Points scored 
+SELECT SUM(winning_score+losing_score) AS "Total Points Scored"
+FROM tournament;
+
 
   
