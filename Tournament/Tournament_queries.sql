@@ -106,4 +106,14 @@ ORDER BY COUNT(winner) DESC
 )AS W
 WHERE w."Wins"> 100
 
+---Unique teams that have played the tournament 
+SELECT COUNT(t.teams) AS "Unique teams"
+FROM 
+(
+SELECT DISTINCT winner AS teams
+FROM tournament 
+UNION 
+SELECT DISTINCT loser
+from tournament 
+)as t;
   
