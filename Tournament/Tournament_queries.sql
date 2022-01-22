@@ -94,5 +94,16 @@ SELECT game_date, winning_seed, winner, winning_score,
 SELECT SUM(winning_score+losing_score) AS "Total Points Scored"
 FROM tournament;
 
+--- Subquery to pull using alias in the where clause.
+---query to show regions excluding national championships and semifinals 
+SELECT * 
+FROM 
+(
+SELECT region, Count(winner) AS "Wins"
+FROM tournament 
+GROUP BY region 
+ORDER BY COUNT(winner) DESC
+)AS W
+WHERE w."Wins"> 100
 
   
